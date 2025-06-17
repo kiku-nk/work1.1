@@ -1,0 +1,23 @@
+name: Deploy to XREA via FTP
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Upload via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.0.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./  # アップロードするディレクトリ
+          server-dir: /public_html/  # XREAの公開ディレクトリ
