@@ -1,0 +1,11 @@
+# メモ：Gitの管理下におきたくないファイルを指定するファイルのことです。
+# Node.jsの依存ライブラリ
+node_modules/
+
+# 公開用ビルド成果物（XREAアップロード用）
+public_html/
+
+# OSやエディタのゴミファイル
+.DS_Store
+Thumbs.db
+
