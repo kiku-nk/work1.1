@@ -1,0 +1,69 @@
+@use '../foundation/variable' as vars;
+@use '../foundation/mixins' as mix;
+/*====================================
+_parts
+見出し、テキストなどの部品
+====================================*/
+
+/* 見出し
+------------------------- */
+.section-title {
+  text-align: center;
+  color: vars.$baseFontColor;
+  font-size: 3.2rem;
+  font-weight: bold;
+  span {
+    border-bottom: 1px solid vars.$baseFontColor;
+  }
+}
+/* 丸い画像：topで使用
+------------------------- */
+.image-circle {
+  img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    margin-right: 3rem;
+  }
+}
+
+/* 画像のタイトル：topで使用
+------------------------- */
+.caption-title {
+  font-size: 1.6rem;
+  color: vars.$baseFontColor;
+}
+
+/* 記事リスト：topで使用
+------------------------- */
+.article-list {
+  display: flex;
+  .article-item {
+    width: calc((100% - 3.4rem) / 3) ;
+    text-align: center;
+    &+.article-item {
+      margin-left: 1.7rem;
+    }
+    .caption-title {
+      margin-top: 1rem;
+    }
+    .text {
+      margin-top: 1rem;
+    }
+
+  }
+}
+// メディアクエリ
+@include mix.mq-down {
+  .article-list {
+    flex-direction: column;
+    margin: 0 auto;
+    .article-item {
+      width: 100%;
+      &+.article-item {
+        margin-left: 0;
+        margin-top: 3rem;
+      }
+    }
+  }
+}

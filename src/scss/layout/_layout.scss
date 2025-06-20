@@ -1,0 +1,35 @@
+@use '../foundation/variable' as vars;
+/*====================================
+Layout
+大枠のサイズ、余白など。サイズが変わる場合は個別ページで調整してください
+====================================*/
+
+html {
+  position: relative;
+	min-width: 0;
+  overflow: hidden;
+  color: vars.$baseFontColor;
+}
+/* body-layout
+------------------------- */
+.body-layout {
+  width: 100%;
+  min-width: 37.5rem;
+  height: 100%;
+  background-color: vars.$whiteColor;
+  overflow: auto;
+}
+/* section-area
+------------------------- */
+.section-area {
+  max-width: 96rem;
+  margin: 8rem auto 0;
+  padding: 0 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* footer-layout
+------------------------- */
+.footer-layout {
+  text-align: center;
+}

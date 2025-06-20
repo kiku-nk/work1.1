@@ -1,0 +1,14 @@
+/* Foundation */
+@use "./foundation/index" as f;
+
+/* Layout */
+@use "./layout" as l;
+
+/* Component */
+@use "./component" as c;
+
+/* Page */
+@use "./page" as p;
+
+/* IE only */
+// @use "./foundation/ie" as ie;

@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>ページのタイトルa</title>
-</head>
-<body>
-  <!-- ここにウェブページのコンテンツを記述 -->
-</body>
-</html>
+<%- include('./partials/_head') %>
+<%- include('./partials/_header') %>
+<main class="p-top">
+  <div class="mv-area">
+    <img src="images/mv.jpg" alt="">
+  </div>
+  <section class="section-area section-about">
+    <h2 class="section-title"><span>About</span></h2>
+    <div class="cont-area">
+      <div class="image-circle"><img src="images/top/about.jpg" alt=""></div>
+      <div class="title-text-wrap">
+        <h3 class="caption-title"><span>NAME NAMENAME</span></h3>
+        <p class="text">
+          コーディング練習 デザインカンプからのコーディング 参考サイトは<a class="text-link" href="https://code-jump.com/profile-menu/" target="_blank">コチラ</a><br>テキストテキストテキストテキストテキストテキストテキスト テキストテキストテキストテキストテキストテキストテキスト
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section-area section-category">
+    <h2 class="section-title"><span>Bicycle</span></h2>
+    <div class="cont-area">
+      <%- include('./parts/_article-list') %>
+    </div>
+  </section>
+</main>
+<%- include('./partials/_footer') %>
+<%- include('./partials/_foot') %>

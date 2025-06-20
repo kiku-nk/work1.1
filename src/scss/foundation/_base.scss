@@ -1,0 +1,177 @@
+@use './variable' as vars;
+@use './mixins' as mix;
+/* reset -----------------------------------------------------------   */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  vertical-align:baseline;
+  background:transparent;
+}
+* {
+  box-sizing: border-box;
+}
+* {
+  -webkit-overflow-scrolling: touch;
+}
+html {
+  min-width: 1024px;
+  overflow: auto;
+  color: vars.$baseFontColor;
+  font-size: 62.5%;
+  font-family: -apple-system, BlinkMacSystemFont,Arial,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+}
+body {
+  width: 100%;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+li {
+  list-style-type: none;
+}
+a {
+  display: inline-block;
+  text-decoration: none;
+	cursor: pointer;
+  color: vars.$linkColor;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    @include mix.hoverOpacity;
+  }
+  @include mix.mq-up {
+		transition: all .2s;
+	}
+  &.disable {
+    @include mix.disableOpacity;
+  }
+}
+.disable {
+  pointer-events: none!important;
+}
+button {
+  color: vars.$baseFontColor;
+  cursor: pointer;
+  line-height: vars.$base-line-height;
+  text-decoration: none;
+  &:focus{
+    outline: none;
+  }
+  @include mix.mq-up {
+		transition: all .2s;
+	}
+  &.disable {
+    background: vars.$gray--200!important;
+    border: 1px solid vars.$gray--200!important;
+    color: vars.$gray--400!important;
+    font-weight: normal!important;
+  }
+}
+img {
+  vertical-align: bottom;
+  width: 100%;
+  height: auto;
+}
+
+h1, h2, h3, h4, h5, h6,
+li, a, dl, dt, dd,
+a, small {
+  line-height: vars.$base-line-height;
+}
+p, p a ,p span {
+  line-height: vars.$base-line-height;
+}
+
+button, textarea, select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  &:focus {
+    outline: none;
+  }
+}
+textarea {
+  resize: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+input[type="search"] {
+  -webkit-appearance: searchfield;
+  appearance: searchfield;
+}
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: searchfield-cancel-button;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  th,td{
+    line-height: 1.6;
+  }
+}
+/* dispNone
+************************************/
+.dispNone {
+  display: none;
+}
+/* margin
+************************************/
+.margin-l-auto {
+  margin-left: auto;
+}
+.margin-r-auto {
+  margin-right: auto;
+}
+
+/* text
+************************************/
+.text {
+  font-size: 1.14rem;
+}
+.text16 {
+  font-size: 1.6rem;
+}
+.link-color {
+  color: vars.$linkColor;
+}
+
+.text-left {
+  text-align: left!important;
+}
+.text-right {
+  text-align: right!important;
+}
+.text-center {
+  text-align: center!important;
+}
+.font-normal {
+  font-weight: normal!important;
+}
+.font-bold {
+  font-weight: bold!important;
+}

@@ -47,12 +47,7 @@ gulp.task("scss", () => {
     .pipe(postcss(cssPlugins))
     .pipe(gulp.dest("public_html/kiku1120.shop/css"));
 });
-//html
-gulp.task("html", () => {
-  return gulp.src([
-    "src/html/*.html", "!src/html/_*.html",
-  ]).pipe(gulp.dest("public_html/kiku1120.shop/"));
-});
+
 //ejs
 gulp.task("ejs", () => {
 	return gulp.src([
@@ -80,10 +75,16 @@ gulp.task("js", (done) => {
   // js ファイルを使わない場合は何も処理しない
   done();
 });
+// gulp.task("images", () => {
+//   return gulp.src([
+//     "src/images/**/*",
+//   ]).pipe(gulp.dest("public_html/kiku1120.shop/images"));
+// });
 gulp.task("images", () => {
   return gulp.src([
     "src/images/**/*",
-  ]).pipe(gulp.dest("public_html/kiku1120.shop/images"));
+  ], { encoding: false })  // ここにオプション追加
+  .pipe(gulp.dest("public_html/kiku1120.shop/images"));
 });
 //fabicon
 gulp.task("fabicon", () => {
@@ -95,12 +96,11 @@ gulp.task("fabicon", () => {
 
 function watchChangeFlie() {
   gulp.watch("src/scss/**/*.scss", gulp.series("scss"));
-  gulp.watch("src/html/*.html", gulp.series("html"));
   gulp.watch("src/ejs/**/*.ejs", gulp.series("ejs"));
   // gulp.watch("src/js/**/*.js", gulp.series("js"));
   gulp.watch("src/images/**/*", gulp.series("images"));
   gulp.watch(["src/*.ico", "src/*.png"], gulp.series("fabicon"));
 }
 
-gulp.task("default", gulp.series("vendor", "scss", "html", "ejs", "js", "images", "fabicon", ));
-gulp.task("watch", gulp.series("vendor", "scss", "html", "ejs", "js", "images", "fabicon", gulp.parallel(watchChangeFlie)));
+gulp.task("default", gulp.series("vendor", "scss", "ejs", "js", "images", "fabicon", ));
+gulp.task("watch", gulp.series("vendor", "scss", "ejs", "js", "images", "fabicon", gulp.parallel(watchChangeFlie)));

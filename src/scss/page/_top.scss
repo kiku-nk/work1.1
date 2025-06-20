@@ -1,0 +1,43 @@
+@use '../foundation/variable' as vars;
+@use '../foundation/mixins' as mix;
+/*====================================
+topページ
+固有クラス：p-top
+====================================*/
+
+.p-top {
+  padding-bottom: 10rem;
+  .mv-area {
+    img {
+      height: 60rem;
+      object-fit: cover;
+    }
+  }
+  .section-about {
+    .cont-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 53rem;
+      margin: 7rem auto 0;
+    }
+    @include mix.mq-down {
+      .cont-area {
+        flex-direction: column;
+        .image-circle img {
+          margin-right: 0;
+        }
+      }
+      .title-text-wrap {
+        margin-top: 1rem;
+      }
+    }
+  }// section-about
+  .section-category {
+    .cont-area {
+      display: flex;
+      max-width: 87.1rem;
+      margin: 7rem auto 0;
+    }
+  }
+}

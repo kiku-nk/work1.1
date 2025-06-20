@@ -1,0 +1,24 @@
+
+@function _rem($px) {
+  @return ($px / $base-font-size) * 1rem;
+}
+
+@function _btn-hover($base-color) {
+  @return lighten($base-color, 15%);
+}
+
+@function _btn-active($base-color) {
+  @return darken($base-color, 10%);
+}
+
+@function re-color($code) {
+  @return str-slice("#{$code}", 2);
+}
+
+// --- VW ---
+@function vw($px, $width: $spDesignWidth) {
+  @return ($px * 100 / $width) * 1vw;
+}
+@function vw-pc($px, $width: $pcDesignWidth) {
+  @return ($px * 100 / $width) * 1vw;
+}

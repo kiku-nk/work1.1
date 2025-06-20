@@ -1,0 +1,35 @@
+@use '../foundation/variable' as vars;
+
+/*====================================
+ヘッダー
+====================================*/
+
+.header-layout {
+  display: flex;
+  max-width: 96rem;
+  min-height: 6rem;
+  margin: 0 auto;
+	padding: 0 1.5rem;
+  .header-wrap {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .header-logo {
+    width: 12rem;
+  }
+  .header-list {
+    display: flex;
+    justify-content: flex-end;
+    width: calc(100% - 12rem);
+  }
+  .header-item {
+    font-size: 1.4rem;
+    a {
+      color: vars.$headerLinkColor;
+    }
+    &+.header-item {
+      margin-left: 3rem;
+    }
+  }
+}
