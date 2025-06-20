@@ -19,5 +19,5 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
-          local-dir: public_html/kiku1120.shop  # アップロードするディレクトリ
+          local-dir: public_html/kiku1120.shop/  # アップロードするディレクトリ
           server-dir: /public_html/kiku1120.shop  # XREAの公開ディレクトリ
