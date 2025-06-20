@@ -83,7 +83,7 @@ gulp.task("js", (done) => {
 gulp.task("images", () => {
   return gulp.src([
     "src/images/**/*",
-  ], { encoding: false })  // ここにオプション追加
+  ], { encoding: false })  // gulp5で画像ファイルが壊れた場合の対処
   .pipe(gulp.dest("public_html/kiku1120.shop/images"));
 });
 //fabicon
