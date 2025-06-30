@@ -6,14 +6,22 @@ on:
       - master
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Debug — List build output files
-        run: ls -la public_html/kiku1120.shop/
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run Gulp build
+        run: yarn gulp
 
       - name: Upload via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.0.0
