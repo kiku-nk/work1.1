@@ -20,8 +20,12 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      # - name: Run Gulp build
-#   run: yarn gulp
+      - name: Run Gulp build
+        run: yarn gulp
+
+      # ✅ デバッグ用に出力フォルダを表示
+      - name: Debug — List build output files
+        run: ls -la public_html/kiku1120.shop/
 
       - name: Upload via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.0.0
@@ -31,4 +35,3 @@ jobs:
           password: ${{ secrets.FTP_PASS }}
           local-dir: public_html/kiku1120.shop/
           server-dir: /public_html/kiku1120.shop/
-
